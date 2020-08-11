@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <script>
+
+        let playerWins = 0;
+        let computerWins = 0;
+        let roundCount = 0;
+
+        function playerChoice() {
+            let choice = prompt("Pick Rock, Paper, or Scissors!");
+            return choice;
+        }
+
+
+
+
+
+
+       function computerPlay() {
+        let selectors = ["rock", "paper", "scissors"];
+        return selectors[Math.floor(Math.random() * selectors.length)];
+       }
+
+
+
+
+
+
+       function playRound(playerSelection, computerSelection) {
+           roundCount++;
+           console.log("It is round " + roundCount + "!");
+        playerSelection = playerChoice();
+        computerSelection = computerPlay();
+        if (playerSelection === computerSelection) {
+            console.log("Draw");
+        }
+
+
+        if (computerSelection === "rock") {
+            if (playerSelection === "paper") {
+                console.log("You win! Paper beats Rock!");
+                playerWins++
+            }
+            if (playerSelection === "scissors") {
+                console.log("You lose! Rock beats Scissors!");
+                computerWins++
+            }
+        }
+
+
+        else if (computerSelection === "paper") {
+            if (playerSelection === "scissors") {
+                console.log("You win! Scissors beats Paper!");
+                playerWins++
+            }
+            if (playerSelection ==="rock") {
+                console.log("You lose! Paper beats Rock!");
+                computerWins++
+            }
+        }
+
+
+        else if (computerSelection === "scissors") {
+            if (playerSelection === "rock") {
+                console.log("You win! Rock beats Scissors!");
+                playerWins++
+            }
+            if (playerSelection === "paper") {
+                console.log("You lose! Scissors beats Paper!");
+                computerWins++
+            }
+        }
+       }
+      
+      function game() {
+        playRound();
+        playRound();
+        playRound();
+        playRound();
+        playRound();
+        if (playerWins == computerWins) {
+            console.log("It's a draw!");
+        }
+        else if (playerWins > computerWins) {
+            console.log("You won! Your score was " + playerWins + " and the computer's score was " + computerWins + "!");
+        }
+        else if (computerWins > playerWins) {
+            console.log("You lose! Your score was " + playerWins + " and the computer's score was " + computerWins + "!");
+        }
+      }
+      game();
+    </script>
+</html>
